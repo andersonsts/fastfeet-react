@@ -29,7 +29,7 @@ export const Content = styled.div`
   }
 `;
 
-export const Block = styled.div`
+export const EmailWrapper = styled.div`
   width: 100%;
   height: 50px;
   position: absolute;
@@ -48,11 +48,7 @@ export const Block = styled.div`
     padding-top: 10px;
     font-size: 16px;
     border: 0;
-
-    &:focus + label span {
-      transform: translateY(-25px);
-      transition: all 0.3s ease;
-      color: #3498db;
-    }
   }
 `;
+
+export const PassWrapper = styled.div``;
