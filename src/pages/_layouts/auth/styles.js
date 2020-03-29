@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   height: 100%;
@@ -14,7 +14,12 @@ export const Content = styled.div`
   text-align: center;
   background: #fff;
   padding: 60px 30px;
-  box-shadow: 1px 1px 10px rgba(1, 1, 1, 0.3);
+  box-shadow: 5px 5px 20px rgba(1, 1, 1, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
 
   img {
     margin-bottom: 40px;
@@ -23,32 +28,91 @@ export const Content = styled.div`
   }
 
   form {
-    display: flex;
-    flex-direction: column;
-    position: relative;
+    width: 100%;
+    margin-top: 10px;
   }
 `;
 
 export const EmailWrapper = styled.div`
-  width: 100%;
-  height: 50px;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  position: relative;
 
-  ${(props) => props.Aemail && css``}
-
-  input {
-    outline: 0;
+  > input {
+    margin-top: 20px;
+    padding: 10px 0;
+    margin-bottom: 30px;
     width: 100%;
-    height: 100%;
-    color: #000;
-    padding-top: 10px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #7159c1;
     font-size: 16px;
-    border: 0;
+    font-family: 'Roboto';
+    transition: all 0.3s ease-in-out;
+    color: #777;
+
+    &:focus ~ label,
+    &:valid ~ label {
+      bottom: 70px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #7159c1;
+    }
+
+    &:focus,
+    &:valid {
+      border-bottom: 2px solid #7159c1;
+    }
+  }
+
+  > label {
+    font-family: 'Roboto';
+    position: absolute;
+    bottom: ${(props) => (props.ani ? '42px' : '70px')};
+    left: 0px;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    font-weight: bold;
+    color: #777;
   }
 `;
 
-export const PassWrapper = styled.div``;
+export const PassWrapper = styled.div`
+  position: relative;
+
+  > input {
+    margin-top: 20px;
+    padding: 10px 0;
+    margin-bottom: 30px;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #7159c1;
+    font-size: 16px;
+    font-family: 'Roboto';
+    transition: all 0.3s ease-in-out;
+    color: #777;
+
+    &:focus ~ label,
+    &:valid ~ label {
+      bottom: 70px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #7159c1;
+    }
+
+    &:focus,
+    &:valid {
+      border-bottom: 2px solid #7159c1;
+    }
+  }
+
+  > label {
+    font-family: 'Roboto';
+    position: absolute;
+    bottom: 42px;
+    left: 0px;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    font-weight: bold;
+    color: #777;
+  }
+`;
