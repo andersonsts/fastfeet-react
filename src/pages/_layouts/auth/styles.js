@@ -30,10 +30,9 @@ export const Content = styled.div`
 
   form {
     width: 100%;
-    margin-top: 5px;
 
     button {
-      background: #7159c1;
+      background: #7d40e7;
       width: 100%;
       border: 0;
       color: #fff;
@@ -45,7 +44,7 @@ export const Content = styled.div`
       transition: all 0.3s ease-in-out;
 
       &:hover {
-        background: ${darken(0.05, '#7159c1')};
+        background: ${darken(0.05, '#7D40E7')};
       }
     }
   }
@@ -61,29 +60,29 @@ export const EmailWrapper = styled.div`
     width: 100%;
     outline: none;
     border: none;
-    border-bottom: 2px solid ${lighten(0.15, '#7159c1')};
-    font-size: 18px;
+    border-bottom: 2px solid ${lighten(0.15, '#7D40E7')};
+    font-size: 16px;
     font-family: 'Roboto';
     transition: all 0.3s ease-in-out;
-    color: #777;
+    color: #999999;
 
     &:focus ~ label,
     &:valid ~ label {
       bottom: 70px;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: bold;
-      color: #7159c1;
+      color: #7d40e7;
     }
 
     &:focus ~ svg,
     &:valid ~ svg {
-      color: #7159c1;
+      color: #7d40e7;
       transform: translateX(20%);
     }
 
     &:focus,
     &:valid {
-      border-bottom: 2px solid #7159c1;
+      border-bottom: 2px solid #7d40e7;
     }
   }
 
@@ -95,16 +94,16 @@ export const EmailWrapper = styled.div`
     transition: all 0.3s ease;
     pointer-events: none;
     font-weight: bold;
-    font-size: 18px;
-    color: #777;
+    font-size: 16px;
+    color: #999999;
   }
 
   > svg {
     position: absolute;
     bottom: 42px;
     right: 10px;
-    color: ${lighten(0.1, '#7159c1')};
-    font-size: 22px;
+    color: ${lighten(0.1, '#7D40E7')};
+    font-size: 20px;
     transition: all 0.3s ease-in-out;
   }
 `;
@@ -119,50 +118,50 @@ export const PassWrapper = styled.div`
     width: 100%;
     outline: none;
     border: none;
-    border-bottom: 2px solid ${lighten(0.15, '#7159c1')};
-    font-size: 18px;
+    border-bottom: 2px solid ${lighten(0.15, '#7D40E7')};
+    font-size: 16px;
     font-family: 'Roboto';
     transition: all 0.3s ease-in-out;
-    color: #777;
+    color: #999999;
 
     &:focus ~ label,
     &:valid ~ label {
       bottom: 70px;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: bold;
-      color: #7159c1;
+      color: #7d40e7;
     }
 
     &:focus ~ svg,
     &:valid ~ svg {
-      color: #7159c1;
+      color: #7d40e7;
       transform: translateX(20%);
     }
 
     &:focus,
     &:valid {
-      border-bottom: 2px solid #7159c1;
+      border-bottom: 2px solid #7d40e7;
     }
   }
 
   > label {
     font-family: 'Roboto';
-    font-size: 18px;
+    font-size: 16px;
     position: absolute;
     bottom: 42px;
     left: 0px;
     transition: all 0.3s ease;
     pointer-events: none;
     font-weight: bold;
-    color: #777;
+    color: #999999;
   }
 
   > svg {
     position: absolute;
     bottom: 42px;
     right: 10px;
-    color: ${lighten(0.1, '#7159c1')};
-    font-size: 22px;
+    color: ${lighten(0.1, '#7D40E7')};
+    font-size: 20px;
     transition: all 0.3s ease-in-out;
   }
 `;
