@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaSignOutAlt } from 'react-icons/fa';
 
-import avatar from '../../assets/avatar.jpg';
+import avatar from '../../assets/avatar.png';
+import logo from '../../assets/logo.png';
 
 import { Container, Content } from './styles';
 
@@ -12,11 +13,12 @@ export default function Header() {
       <Content>
         <nav>
           <Link to="/">
-            <img src="" alt="" />
+            <img src={logo} alt="Logo" />
           </Link>
-          <Link to="/">Encomendas</Link>
-          <Link to="/">Entregadores</Link>
-          <Link to="/">Destinatários</Link>
+          <Link to="/">ENCOMENDAS</Link>
+          <Link to="/">ENTREGADORES</Link>
+          <Link to="/">DESTINATÁRIOS</Link>
+          <Link to="/">PROBLEMAS</Link>
         </nav>
 
         <aside>
