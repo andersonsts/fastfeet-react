@@ -31,10 +31,34 @@ export const Container = styled.div`
     }
 
     tbody tr td {
-      padding: 20px 0px 18px 25px;
+      padding: 20px 0px 16px 25px;
       color: #666;
       font-size: 16px;
       background: #fff;
+
+      &:nth-child(3) {
+        > div {
+          display: flex;
+          align-items: center;
+
+          div {
+            margin-right: 5px;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #f4effc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            strong {
+              font-weight: 500;
+              font-size: 16px;
+              color: #a28fd0;
+            }
+          }
+        }
+      }
 
       &:first-child {
         border-radius: 4px 0px 0px 4px;

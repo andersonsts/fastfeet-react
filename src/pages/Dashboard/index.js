@@ -45,8 +45,12 @@ export default function Dashboard() {
             <td>#01</td>
             <td>Ludwig van Beethoven</td>
             <td>
-              <img src="" alt="" />
-              John Doe
+              <div>
+                <div>
+                  <strong>JD</strong>
+                </div>
+                <p>John Doe</p>
+              </div>
             </td>
             <td>Rio do Sul</td>
             <td>Santa Catarina</td>
@@ -64,8 +68,12 @@ export default function Dashboard() {
             <td>#01</td>
             <td>Ludwig van Beethoven</td>
             <td>
-              <img src="" alt="" />
-              John Doe
+              <div>
+                <div>
+                  <strong>JD</strong>
+                </div>
+                <p>John Doe</p>
+              </div>
             </td>
             <td>Rio do Sul</td>
             <td>Santa Catarina</td>
@@ -83,8 +91,12 @@ export default function Dashboard() {
             <td>#01</td>
             <td>Ludwig van Beethoven</td>
             <td>
-              <img src="" alt="" />
-              John Doe
+              <div>
+                <div>
+                  <strong>JD</strong>
+                </div>
+                <p>John Doe</p>
+              </div>
             </td>
             <td>Rio do Sul</td>
             <td>Santa Catarina</td>
