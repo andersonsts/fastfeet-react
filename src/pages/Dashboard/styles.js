@@ -13,6 +13,43 @@ export const Container = styled.div`
     text-transform: uppercase;
     color: #444;
   }
+
+  table {
+    width: 100%;
+
+    thead {
+      text-align: left;
+
+      tr th {
+        padding: 4px 0px 15px 25px;
+        font-size: 16px;
+        color: #444;
+
+        &:last-child {
+          text-align: center;
+        }
+      }
+    }
+
+    tbody {
+      text-align: left;
+
+      tr {
+        background: #fff;
+      }
+
+      tr td {
+        padding: 20px 0px 18px 25px;
+        color: #666;
+        font-size: 16px;
+
+        &:last-child {
+          text-align: center;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
 `;
 
 export const Top = styled.div`
