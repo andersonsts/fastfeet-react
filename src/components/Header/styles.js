@@ -60,11 +60,10 @@ export const Content = styled.div`
     width: 200px;
 
     img {
-      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
-      width: 40px;
-      height: 40px;
-      margin-right: 10px;
       border-radius: 50%;
+      width: 34px;
+      height: 34px;
+      margin-right: 10px;
     }
 
     div {

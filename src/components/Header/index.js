@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaSignOutAlt } from 'react-icons/fa';
 
-import avatar from '../../assets/avatar.png';
 import logo from '../../assets/logo.png';
+import avatar from '../../assets/avatar.png';
 
 import { Container, Content } from './styles';
 

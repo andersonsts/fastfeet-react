@@ -21,7 +21,7 @@ export const Container = styled.div`
 
     thead tr th {
       text-align: left;
-      padding: 4px 0px 15px 25px;
+      padding: 10px 0px 0px 25px;
       font-size: 16px;
       color: #444;
 
@@ -36,8 +36,13 @@ export const Container = styled.div`
       font-size: 16px;
       background: #fff;
 
+      &:first-child {
+        border-radius: 4px 0px 0px 4px;
+      }
+
       &:last-child {
         text-align: center;
+        border-radius: 0px 4px 4px 0px;
       }
     }
   }
@@ -76,7 +81,7 @@ export const Top = styled.div`
       margin: 0px 8px 0px 16px;
 
       &:hover svg {
-        color: #7159c1;
+        color: #7d40e7;
       }
 
       svg {
@@ -114,5 +119,49 @@ export const Top = styled.div`
       font-size: 18px;
       margin-right: 8px;
     }
+  }
+`;
+
+const handleColorType = (status) => {
+  switch (status) {
+    case 'delivered':
+      return '#2CA42B';
+    case 'canceled':
+      return '#DE3B3B';
+    case 'pending':
+      return '#C1BC35';
+    default:
+      return '#4D85EE';
+  }
+};
+
+export const Status = styled.div`
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+  height: 25px;
+  width: 110px;
+  color: ${({ value }) => handleColorType(value)};
+  font-weight: bold;
+  font-size: 14px;
+
+  svg {
+    margin-right: 6px;
+  }
+`;
+
+export const Actions = styled.button`
+  border: none;
+  background: none;
+  font-size: 16px;
+  color: #666;
+
+  svg {
+    transition: all 0.2s ease-in-out;
+  }
+
+  &:hover svg {
+    color: #7d40e7;
+    transform: scale(1.1);
   }
 `;
