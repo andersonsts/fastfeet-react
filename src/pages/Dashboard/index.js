@@ -46,6 +46,30 @@ export default function Dashboard() {
             <td>Entregue</td>
             <td>...</td>
           </tr>
+          <tr>
+            <td>#01</td>
+            <td>Ludwig van Beethoven</td>
+            <td>
+              <img src="" alt="" />
+              John Doe
+            </td>
+            <td>Rio do Sul</td>
+            <td>Santa Catarina</td>
+            <td>Entregue</td>
+            <td>...</td>
+          </tr>
+          <tr>
+            <td>#01</td>
+            <td>Ludwig van Beethoven</td>
+            <td>
+              <img src="" alt="" />
+              John Doe
+            </td>
+            <td>Rio do Sul</td>
+            <td>Santa Catarina</td>
+            <td>Entregue</td>
+            <td>...</td>
+          </tr>
         </tbody>
       </table>
     </Container>

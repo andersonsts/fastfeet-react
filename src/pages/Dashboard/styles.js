@@ -16,37 +16,28 @@ export const Container = styled.div`
 
   table {
     width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 20px;
 
-    thead {
+    thead tr th {
       text-align: left;
+      padding: 4px 0px 15px 25px;
+      font-size: 16px;
+      color: #444;
 
-      tr th {
-        padding: 4px 0px 15px 25px;
-        font-size: 16px;
-        color: #444;
-
-        &:last-child {
-          text-align: center;
-        }
+      &:last-child {
+        text-align: center;
       }
     }
 
-    tbody {
-      text-align: left;
+    tbody tr td {
+      padding: 20px 0px 18px 25px;
+      color: #666;
+      font-size: 16px;
+      background: #fff;
 
-      tr {
-        background: #fff;
-      }
-
-      tr td {
-        padding: 20px 0px 18px 25px;
-        color: #666;
-        font-size: 16px;
-
-        &:last-child {
-          text-align: center;
-          vertical-align: middle;
-        }
+      &:last-child {
+        text-align: center;
       }
     }
   }
@@ -54,7 +45,6 @@ export const Container = styled.div`
 
 export const Top = styled.div`
   margin-top: 35px;
-  margin-bottom: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
