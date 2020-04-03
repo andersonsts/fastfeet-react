@@ -32,13 +32,13 @@ export default function Sign() {
     <>
       <img src={logo} alt="FastFeet" />
 
-      <Form schema={schema} onSubmit={handleSubmit}>
+      <Form schema={schema} onSubmit={handleSubmit} noValidate>
         <EmailWrapper ani={ani}>
           <Input
             type="email"
             name="email"
-            required
             onBlur={handleBlur}
+            required
             autoCorrect="off"
             autoComplete="off"
           />

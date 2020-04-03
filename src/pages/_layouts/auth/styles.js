@@ -86,6 +86,13 @@ export const EmailWrapper = styled.div`
     }
   }
 
+  span {
+    padding: 0px;
+    margin: 0px;
+    font-size: 10px;
+    background: red;
+  }
+
   > label {
     font-family: 'Roboto';
     position: absolute;
@@ -142,6 +149,10 @@ export const PassWrapper = styled.div`
     &:valid {
       border-bottom: 2px solid #7d40e7;
     }
+  }
+
+  span {
+    background: red;
   }
 
   > label {
