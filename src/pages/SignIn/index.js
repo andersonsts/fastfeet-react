@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
 import { MdMail, MdLock } from 'react-icons/md';
 import { Form, Input } from '@rocketseat/unform';
+import * as Yup from 'yup';
 
 import { EmailWrapper, PassWrapper } from '../_layouts/auth/styles';
 import logo from '../../assets/logo.png';
+
+const schema = Yup.object().shape({
+  email: Yup.string()
+    .email('Insira um e-mail válido')
+    .required('O e-mail é obrigatório'),
+  password: Yup.string().required('A senha é obrigatória'),
+});
 
 export default function Sign() {
   const [ani, setAni] = useState(true);
@@ -24,7 +32,7 @@ export default function Sign() {
     <>
       <img src={logo} alt="FastFeet" />
 
-      <Form onSubmit={handleSubmit}>
+      <Form schema={schema} onSubmit={handleSubmit}>
         <EmailWrapper ani={ani}>
           <Input
             type="email"
