@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import { MdMail, MdLock } from 'react-icons/md';
+import { Form, Input } from '@rocketseat/unform';
 
 import { EmailWrapper, PassWrapper } from '../_layouts/auth/styles';
 import logo from '../../assets/logo.png';
 
 export default function Sign() {
   const [ani, setAni] = useState(true);
+
+  function handleSubmit(data) {
+    console.tron.log(data);
+  }
 
   function handleBlur(e) {
     if (e.target.value !== '') {
@@ -19,9 +24,9 @@ export default function Sign() {
     <>
       <img src={logo} alt="FastFeet" />
 
-      <form>
+      <Form onSubmit={handleSubmit}>
         <EmailWrapper ani={ani}>
-          <input
+          <Input
             type="email"
             name="email"
             required
@@ -33,12 +38,12 @@ export default function Sign() {
           <MdMail />
         </EmailWrapper>
         <PassWrapper>
-          <input type="password" name="password" required />
+          <Input type="password" name="password" required />
           <label htmlFor="password">SUA SENHA</label>
           <MdLock />
         </PassWrapper>
         <button type="submit">Entrar no sistema</button>
-      </form>
+      </Form>
     </>
   );
 }
