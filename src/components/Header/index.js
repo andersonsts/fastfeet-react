@@ -16,9 +16,9 @@ export default function Header() {
             <img src={logo} alt="Logo" />
           </Link>
           <Link to="/">ENCOMENDAS</Link>
-          <Link to="/">ENTREGADORES</Link>
-          <Link to="/">DESTINATÁRIOS</Link>
-          <Link to="/">PROBLEMAS</Link>
+          <Link to="/deliverymans">ENTREGADORES</Link>
+          <Link to="/recipients">DESTINATÁRIOS</Link>
+          <Link to="/problems">PROBLEMAS</Link>
         </nav>
 
         <aside>
