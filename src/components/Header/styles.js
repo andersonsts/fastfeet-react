@@ -16,9 +16,19 @@ export const Content = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  a img {
-    height: 35px;
-    width: 135px;
+  > a {
+    padding-right: 30px;
+    padding-left: 10px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #ddd;
+
+    img {
+      height: 26px;
+      width: 135px;
+    }
   }
 
   aside {
@@ -82,8 +92,8 @@ export const Nav = styled.nav`
   align-items: center;
   height: 100%;
   font-family: 'Roboto', sans-serif;
-  width: 800px;
-  padding: 0px 20px;
+  width: 900px;
+  padding-left: 30px;
 
   a {
     width: 140px;
@@ -92,7 +102,6 @@ export const Nav = styled.nav`
     align-items: center;
     height: 100%;
     justify-content: center;
-    padding: 0px 10px;
     font-weight: bold;
     color: #999;
     transition: color 0.2s ease-in-out;
@@ -103,7 +112,7 @@ export const Nav = styled.nav`
 
     &:nth-child(${(props) => props.active + 1}) {
       color: #444;
-      background: ${darken(0.008, '#fff')};
+      background: ${darken(0.002, '#fff')};
     }
 
     &:nth-child(${(props) => props.active + 1}) ~ .line {
