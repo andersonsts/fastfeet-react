@@ -103,6 +103,7 @@ export const Nav = styled.nav`
 
     &:nth-child(${(props) => props.active + 1}) {
       color: #444;
+      background: ${darken(0.008, '#fff')};
     }
 
     &:nth-child(${(props) => props.active + 1}) ~ .line {
