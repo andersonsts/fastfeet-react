@@ -8,7 +8,7 @@ import avatar from '../../assets/avatar.png';
 import { Container, Content, Nav } from './styles';
 
 export default function Header() {
-  const [links, setLinks] = useState([
+  const [links] = useState([
     { label: 'ENCOMENDAS', route: '/dashboard', active: true },
     { label: 'ENTREGADORES', route: '/deliverymans', active: false },
     { label: 'DESTINATÁRIOS', route: '/recipients', active: false },
