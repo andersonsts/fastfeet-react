@@ -7,9 +7,8 @@ import { Container, Actions } from './styles';
 export default function Problems() {
   const [openActions, setOpenActions] = useState(false);
 
-  function handleActions(stateActions) {
-    setOpenActions(!stateActions);
-    console.log(openActions);
+  function handleActions(value) {
+    setOpenActions(!value);
   }
 
   return (
@@ -31,42 +30,6 @@ export default function Problems() {
               et fellis eleifered elementuin vei queis
             </td>
             <td>
-              <Actions type="button">
-                <FaEllipsisH />
-              </Actions>
-            </td>
-          </tr>
-          <tr>
-            <td>#01</td>
-            <td>
-              Lorem ipsun dolor sit amount, consectuting elit. Donec in marius
-              et fellis eleifered elementuin vei queis
-            </td>
-            <td>
-              <Actions type="button">
-                <FaEllipsisH />
-              </Actions>
-            </td>
-          </tr>
-          <tr>
-            <td>#01</td>
-            <td>
-              Lorem ipsun dolor sit amount, consectuting elit. Donec in marius
-              et fellis eleifered elementuin vei queis
-            </td>
-            <td>
-              <Actions type="button">
-                <FaEllipsisH />
-              </Actions>
-            </td>
-          </tr>
-          <tr>
-            <td>#01</td>
-            <td>
-              Lorem ipsun dolor sit amount, consectuting elit. Donec in marius
-              et fellis eleifered elementuin vei queis
-            </td>
-            <td>
               <Actions
                 type="button"
                 openActions={openActions}
@@ -74,12 +37,12 @@ export default function Problems() {
               >
                 <FaEllipsisH />
                 <div>
-                  <div>
+                  <button type="button">
                     <FaPen /> <p>Visualizar</p>
-                  </div>
-                  <div>
+                  </button>
+                  <button type="button">
                     <MdDeleteForever /> <p>Cancelar encomenda</p>
-                  </div>
+                  </button>
                 </div>
               </Actions>
             </td>

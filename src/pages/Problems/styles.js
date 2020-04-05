@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { darken } from 'polished';
 
 export const Container = styled.div`
   max-width: 1200px;
@@ -96,16 +97,19 @@ export const Actions = styled.button`
     justify-content: center;
     position: absolute;
     width: 210px;
-    box-shadow: 0px 0px 2px #000;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     height: 95px;
     top: 20px;
     left: calc(100% - 130px);
     display: ${(props) => (props.openActions ? 'flex' : 'none')};
     transition: display 2s ease-in-out;
+    z-index: 2;
 
-    > div {
+    > button {
       display: flex;
       align-items: center;
+      background: none;
+      border: none;
 
       &:first-child {
         padding: 10px 0px;
@@ -120,6 +124,11 @@ export const Actions = styled.button`
         > p {
           font-size: 16px;
           color: #999;
+          transition: color 0.25s ease-in-out;
+
+          &:hover {
+            color: ${darken(0.2, '#999')};
+          }
         }
       }
 
@@ -134,6 +143,11 @@ export const Actions = styled.button`
         > p {
           font-size: 16px;
           color: #999;
+          transition: color 0.25s ease-in-out;
+
+          &:hover {
+            color: ${darken(0.2, '#999')};
+          }
         }
       }
     }
