@@ -76,13 +76,66 @@ export const Actions = styled.button`
   background: none;
   font-size: 16px;
   color: #666;
+  position: relative;
 
-  svg {
+  > svg {
     transition: all 0.2s ease-in-out;
   }
 
-  &:hover svg {
+  &:hover > svg {
     color: #7d40e7;
     transform: scale(1.1);
+  }
+
+  > div {
+    padding: 18px 15px;
+    background: #fff;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    width: 210px;
+    box-shadow: 0px 0px 2px #000;
+    height: 95px;
+    top: 20px;
+    left: calc(100% - 130px);
+    display: ${(props) => (props.openActions ? 'flex' : 'none')};
+    transition: display 2s ease-in-out;
+
+    > div {
+      display: flex;
+      align-items: center;
+
+      &:first-child {
+        padding: 10px 0px;
+        border-bottom: 1px solid #eee;
+
+        > svg {
+          color: #4d85ee;
+          font-size: 15px;
+          margin-right: 10px;
+        }
+
+        > p {
+          font-size: 16px;
+          color: #999;
+        }
+      }
+
+      &:last-child {
+        padding: 10px 0px;
+        > svg {
+          color: #de3b3b;
+          font-size: 18px;
+          margin-right: 10px;
+        }
+
+        > p {
+          font-size: 16px;
+          color: #999;
+        }
+      }
+    }
   }
 `;

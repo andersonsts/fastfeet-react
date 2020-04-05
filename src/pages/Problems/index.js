@@ -1,9 +1,17 @@
-import React from 'react';
-import { FaEllipsisH } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FaEllipsisH, FaPen } from 'react-icons/fa';
+import { MdDeleteForever } from 'react-icons/md';
 
 import { Container, Actions } from './styles';
 
 export default function Problems() {
+  const [openActions, setOpenActions] = useState(false);
+
+  function handleActions(stateActions) {
+    setOpenActions(!stateActions);
+    console.log(openActions);
+  }
+
   return (
     <Container>
       <h2>Problemas na entrega</h2>
@@ -59,8 +67,20 @@ export default function Problems() {
               et fellis eleifered elementuin vei queis
             </td>
             <td>
-              <Actions type="button">
+              <Actions
+                type="button"
+                openActions={openActions}
+                onClick={() => handleActions(openActions)}
+              >
                 <FaEllipsisH />
+                <div>
+                  <div>
+                    <FaPen /> <p>Visualizar</p>
+                  </div>
+                  <div>
+                    <MdDeleteForever /> <p>Cancelar encomenda</p>
+                  </div>
+                </div>
               </Actions>
             </td>
           </tr>

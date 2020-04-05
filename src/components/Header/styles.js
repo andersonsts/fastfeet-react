@@ -107,7 +107,7 @@ export const Nav = styled.nav`
     transition: color 0.2s ease-in-out;
 
     &:hover {
-      color: #7159c1;
+      color: #7d40e7;
     }
 
     &:nth-child(${(props) => props.active + 1}) {
@@ -118,7 +118,7 @@ export const Nav = styled.nav`
     &:nth-child(${(props) => props.active + 1}) ~ .line {
       transform: ${(props) => optionsTranslate(props.active)};
       transition: all 0.22s ease-in-out;
-      background: #7159c1;
+      background: #7d40e7;
     }
   }
 
@@ -126,7 +126,7 @@ export const Nav = styled.nav`
     width: 140px;
     top: calc(100% - 3px);
     height: 3px;
-    background: #7159c1;
+    background: #7d40e7;
     position: absolute;
   }
 `;
