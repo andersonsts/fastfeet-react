@@ -1,25 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaSignOutAlt } from 'react-icons/fa';
 
 import logo from '../../assets/logo.png';
 import avatar from '../../assets/avatar.png';
 
-import { Container, Content } from './styles';
+import { Container, Content, Nav } from './styles';
 
 export default function Header() {
+  const [links, setLinks] = useState([
+    { label: 'ENCOMENDAS', route: '/dashboard', active: true },
+    { label: 'ENTREGADORES', route: '/deliverymans', active: false },
+    { label: 'DESTINATÁRIOS', route: '/recipients', active: false },
+    { label: 'PROBLEMAS', route: '/problems', active: false },
+  ]);
+  const [filterIndex, setFilterIndex] = useState(0);
+
+  async function handleIndex(index) {
+    await setFilterIndex(index);
+  }
+
   return (
     <Container>
       <Content>
-        <nav>
-          <Link to="/">
-            <img src={logo} alt="Logo" />
-          </Link>
-          <Link to="/">ENCOMENDAS</Link>
-          <Link to="/deliverymans">ENTREGADORES</Link>
-          <Link to="/recipients">DESTINATÁRIOS</Link>
-          <Link to="/problems">PROBLEMAS</Link>
-        </nav>
+        <Link to="/">
+          <img src={logo} alt="Logo" />
+        </Link>
+        <Nav active={filterIndex}>
+          {links.map((link, index) => (
+            <Link
+              to={link.route}
+              key={link.label}
+              onClick={() => handleIndex(index)}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <div className="line" />
+        </Nav>
 
         <aside>
           <img src={avatar} alt="Avatar" />
