@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FaEllipsisH, FaPen } from 'react-icons/fa';
 import { MdDeleteForever } from 'react-icons/md';
 
@@ -45,7 +45,7 @@ export default function Problems() {
     const problem = problems.find((p) => p.id === problemId);
     problem.openActions = !problem.openActions;
 
-    const problemCopy = Array.from(problems);
+    const problemCopy = [...problems];
     problemCopy.splice(problemId - 1, 1, problem);
     setProblems(problemCopy);
   }

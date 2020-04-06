@@ -101,8 +101,12 @@ export const Actions = styled.button`
     height: 95px;
     top: 20px;
     left: calc(100% - 130px);
-    display: ${(props) => (props.openActions ? 'flex' : 'none')};
-    transition: display 2s ease-in-out;
+    display: flex;
+    visibility: ${(props) => (props.openActions ? 'visible' : 'hidden')};
+    opacity: ${(props) => (props.openActions ? '1' : '0')};
+    transform: ${(props) =>
+      props.openActions ? 'translate(15%, 15%)' : 'translate(0)'};
+    transition: all 0.3s ease;
     z-index: 2;
 
     > button {
