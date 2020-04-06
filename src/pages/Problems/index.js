@@ -1,14 +1,53 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaEllipsisH, FaPen } from 'react-icons/fa';
 import { MdDeleteForever } from 'react-icons/md';
 
 import { Container, Actions } from './styles';
 
 export default function Problems() {
-  const [openActions, setOpenActions] = useState(false);
+  const [problems, setProblems] = useState([
+    {
+      id: 1,
+      description: 'alguma coisa aqui q sej aqualquer',
+      openActions: false,
+    },
+    {
+      id: 2,
+      description: 'deaff coisa aqui q sej aqualquer',
+      openActions: false,
+    },
+    {
+      id: 3,
+      description: 'fafea coisa aqui q sej aqualquer',
+      openActions: false,
+    },
+    {
+      id: 4,
+      description: 'fafea feaf aqui q sej aqualquer',
+      openActions: false,
+    },
+    {
+      id: 5,
+      description: 'fafea feaf aqui q sej aqualquer',
+      openActions: false,
+    },
+  ]);
 
-  function handleActions(value) {
-    setOpenActions(!value);
+  // useEffect(() => {
+  //   loadProblems() {
+
+  //   }
+
+  //   loadProblems();
+  // }, [problems])
+
+  function handleActions(problemId) {
+    const problem = problems.find((p) => p.id === problemId);
+    problem.openActions = !problem.openActions;
+
+    const problemCopy = Array.from(problems);
+    problemCopy.splice(problemId - 1, 1, problem);
+    setProblems(problemCopy);
   }
 
   return (
@@ -23,30 +62,29 @@ export default function Problems() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>#01</td>
-            <td>
-              Lorem ipsun dolor sit amount, consectuting elit. Donec in marius
-              et fellis eleifered elementuin vei queis
-            </td>
-            <td>
-              <Actions
-                type="button"
-                openActions={openActions}
-                onClick={() => handleActions(openActions)}
-              >
-                <FaEllipsisH />
-                <div>
-                  <button type="button">
-                    <FaPen /> <p>Visualizar</p>
-                  </button>
-                  <button type="button">
-                    <MdDeleteForever /> <p>Cancelar encomenda</p>
-                  </button>
-                </div>
-              </Actions>
-            </td>
-          </tr>
+          {problems.map((problem) => (
+            <tr>
+              <td>#{problem.id}</td>
+              <td>{problem.description}</td>
+              <td>
+                <Actions
+                  type="button"
+                  openActions={problem.openActions}
+                  onClick={() => handleActions(problem.id)}
+                >
+                  <FaEllipsisH />
+                  <div>
+                    <button type="button">
+                      <FaPen /> <p>Visualizar</p>
+                    </button>
+                    <button type="button">
+                      <MdDeleteForever /> <p>Cancelar encomenda</p>
+                    </button>
+                  </div>
+                </Actions>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </Container>
