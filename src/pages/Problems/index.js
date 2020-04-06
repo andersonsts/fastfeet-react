@@ -75,10 +75,10 @@ export default function Problems() {
                   <FaEllipsisH />
                   <div>
                     <button type="button">
-                      <FaPen /> <p>Visualizar</p>
+                      <FaPen /> <p>Visualiza</p>
                     </button>
                     <button type="button">
-                      <MdDeleteForever /> <p>Cancelar encomenda</p>
+                      <MdDeleteForever /> <p>Cancelar</p>
                     </button>
                   </div>
                 </Actions>
