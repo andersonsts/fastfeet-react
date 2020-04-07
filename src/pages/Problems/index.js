@@ -48,6 +48,20 @@ export default function Problems() {
     const problemCopy = [...problems];
     problemCopy.splice(problemId - 1, 1, problem);
     setProblems(problemCopy);
+
+    window.addEventListener('mouseup', (event) => {
+      problems.forEach((p) => {
+        const actionContainer = document.getElementById(problemId);
+        if (
+          event.target !== actionContainer &&
+          event.target.parentNode !== actionContainer
+        ) {
+          p.openActions = false;
+          problemCopy.splice(problemId - 1, 1, p);
+          setProblems(problemCopy);
+        }
+      });
+    });
   }
 
   return (
@@ -73,7 +87,7 @@ export default function Problems() {
                   onClick={() => handleActions(problem.id)}
                 >
                   <FaEllipsisH />
-                  <div>
+                  <div id={problem.id}>
                     <button type="button">
                       <FaPen /> <p>Visualiza</p>
                     </button>
