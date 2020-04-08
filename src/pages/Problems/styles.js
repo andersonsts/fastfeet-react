@@ -79,16 +79,16 @@ export const Actions = styled.button`
   color: #666;
   position: relative;
 
-  > svg {
+  > div svg {
     transition: all 0.2s ease-in-out;
   }
 
-  &:hover > svg {
+  &:hover > div svg {
     color: #7d40e7;
     transform: scale(1.1);
   }
 
-  > div {
+  > div div {
     padding: 18px 15px;
     background: #fff;
     border-radius: 4px;
@@ -102,8 +102,12 @@ export const Actions = styled.button`
     top: 20px;
     left: calc(100% - 130px);
     display: flex;
-    visibility: ${(props) => (props.openActions ? 'visible' : 'hidden')};
-    opacity: ${(props) => (props.openActions ? '1' : '0')};
+    visibility: ${(props) =>
+      props.openActions === true && props.closeActions === false
+        ? 'visible'
+        : 'hidden'};
+    opacity: ${(props) =>
+      props.openActions === true && props.closeActions === false ? '1' : '0'};
     transform: ${(props) =>
       props.openActions ? 'translate(15%, 15%)' : 'translate(0)'};
     transition: all 0.3s ease;

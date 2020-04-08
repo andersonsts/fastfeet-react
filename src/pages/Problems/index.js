@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaEllipsisH, FaPen } from 'react-icons/fa';
 import { MdDeleteForever } from 'react-icons/md';
 
+import ClickOutside from '../../hooks/useOutside';
 import { Container, Actions } from './styles';
 
 export default function Problems() {
@@ -32,14 +33,7 @@ export default function Problems() {
       openActions: false,
     },
   ]);
-
-  // useEffect(() => {
-  //   loadProblems() {
-
-  //   }
-
-  //   loadProblems();
-  // }, [problems])
+  // const problemKeys = Object.keys(problems);
 
   function handleActions(problemId) {
     const problem = problems.find((prob) => prob.id === problemId);
@@ -49,21 +43,22 @@ export default function Problems() {
     problemCopy.splice(problemId - 1, 1, problem);
     setProblems(problemCopy);
 
-    window.addEventListener('click', (event) => {
-      const actionsContainer = document.getElementById(problemId);
-      const actionsSimple = document.getElementById(`s${problemId}`);
-      if (
-        event.target !== actionsContainer &&
-        event.target.parentNode !== actionsContainer &&
-        event.target !== actionsSimple &&
-        event.target.parentNode !== actionsSimple
-      ) {
-        console.log('clicou fora do elemento', event.target);
-        return;
-      }
+    // window.addEventListener('click', (event) => {
+    //   const actionsContainer = document.getElementById(problemId);
+    //   const actionsSimple = document.getElementById(`s${problemId}`);
+    //   if (
+    //     event.target !== actionsContainer &&
+    //     event.target.parentNode !== actionsContainer &&
+    //     event.target !== actionsSimple &&
+    //     event.target.parentNode !== actionsSimple
+    //   ) {
+    //     console.log('clicou fora do elemento', event.target);
+    //     return;
+    //   }
 
-      console.log('Clicou dentro do elemento');
-    });
+    //   console.log('Clicou dentro do elemento');
+    // });
+
     //   if (
     //     event.target !== actionsContainer &&
     //     event.target.parentNode !== actionsContainer
@@ -88,6 +83,10 @@ export default function Problems() {
     // });
   }
 
+  // useEffect(() => {
+  //   console.log(problemKeys);
+  // }, []);
+
   return (
     <Container>
       <h2>Problemas na entrega</h2>
@@ -105,14 +104,10 @@ export default function Problems() {
               <td>#{problem.id}</td>
               <td>{problem.description}</td>
               <td>
-                <Actions
-                  type="button"
-                  openActions={problem.openActions}
-                  onClick={() => handleActions(problem.id)}
-                >
-                  <FaEllipsisH />
-                  <div id={problem.id}>
-                    <div id={`s${problem.id}`}>
+                <Actions type="button">
+                  <ClickOutside>
+                    <FaEllipsisH onClick={() => handleActions(problem.id)} />
+                    <div openActions={problem.openActions}>
                       <button type="button">
                         <FaPen /> <p>Visualiza</p>
                       </button>
@@ -120,7 +115,7 @@ export default function Problems() {
                         <MdDeleteForever /> <p>Cancelar</p>
                       </button>
                     </div>
-                  </div>
+                  </ClickOutside>
                 </Actions>
               </td>
             </tr>
