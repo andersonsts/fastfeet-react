@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { FaEllipsisH, FaPen } from 'react-icons/fa';
 import { MdDeleteForever } from 'react-icons/md';
 
-import ClickOutside from '../../hooks/useOutside';
+import useClickOut from '../../hooks/useClickOutside';
+
 import { Container, Actions } from './styles';
 
 export default function Problems() {
@@ -33,59 +34,19 @@ export default function Problems() {
       openActions: false,
     },
   ]);
-  // const problemKeys = Object.keys(problems);
+  const [actionCurrent, setActionCurrent] = useState(null);
+  const referent = useRef(null);
 
   function handleActions(problemId) {
     const problem = problems.find((prob) => prob.id === problemId);
     problem.openActions = !problem.openActions;
+    setActionCurrent(problemId);
 
     const problemCopy = [...problems];
     problemCopy.splice(problemId - 1, 1, problem);
     setProblems(problemCopy);
-
-    // window.addEventListener('click', (event) => {
-    //   const actionsContainer = document.getElementById(problemId);
-    //   const actionsSimple = document.getElementById(`s${problemId}`);
-    //   if (
-    //     event.target !== actionsContainer &&
-    //     event.target.parentNode !== actionsContainer &&
-    //     event.target !== actionsSimple &&
-    //     event.target.parentNode !== actionsSimple
-    //   ) {
-    //     console.log('clicou fora do elemento', event.target);
-    //     return;
-    //   }
-
-    //   console.log('Clicou dentro do elemento');
-    // });
-
-    //   if (
-    //     event.target !== actionsContainer &&
-    //     event.target.parentNode !== actionsContainer
-    //   ) {
-    //     problem.openActions = !problem.openActions;
-
-    //     const problemCopy2 = [...problems];
-    //     problemCopy2.splice(problemId - 1, 1, problem);
-    //     setProblems(problemCopy2);
-    //   }
-    // });
-    // problems.forEach((p) => {
-    //   const actionContainer = document.getElementById(problemId);
-    //   if (
-    //     event.target !== actionContainer &&
-    //     event.target.parentNode !== actionContainer
-    //   ) {
-    //     p.openActions = false;
-    //     problemCopy.splice(problemId - 1, 1, p);
-    //     setProblems(problemCopy);
-    //   }
-    // });
+    console.log(actionCurrent);
   }
-
-  // useEffect(() => {
-  //   console.log(problemKeys);
-  // }, []);
 
   return (
     <Container>
@@ -104,18 +65,21 @@ export default function Problems() {
               <td>#{problem.id}</td>
               <td>{problem.description}</td>
               <td>
-                <Actions type="button">
-                  <ClickOutside>
-                    <FaEllipsisH onClick={() => handleActions(problem.id)} />
-                    <div openActions={problem.openActions}>
-                      <button type="button">
-                        <FaPen /> <p>Visualiza</p>
-                      </button>
-                      <button type="button">
-                        <MdDeleteForever /> <p>Cancelar</p>
-                      </button>
-                    </div>
-                  </ClickOutside>
+                <Actions openActions={problem.openActions}>
+                  <button
+                    type="button"
+                    onClick={() => handleActions(problem.id)}
+                  >
+                    <FaEllipsisH />
+                  </button>
+                  <div ref={referent}>
+                    <button type="button">
+                      <FaPen /> <p>Visualiza</p>
+                    </button>
+                    <button type="button">
+                      <MdDeleteForever /> <p>Cancelar</p>
+                    </button>
+                  </div>
                 </Actions>
               </td>
             </tr>

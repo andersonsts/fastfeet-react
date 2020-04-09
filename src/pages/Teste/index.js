@@ -10,7 +10,7 @@ export default function Teste() {
   return (
     <Container ref={node} closeActions={result}>
       <button type="button">Click me</button>
-      <span>Anderson Santos Sousa</span>
+      <div />
     </Container>
   );
 }

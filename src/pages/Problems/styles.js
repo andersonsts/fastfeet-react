@@ -72,25 +72,29 @@ export const Container = styled.div`
   }
 `;
 
-export const Actions = styled.button`
-  border: none;
-  background: none;
-  font-size: 16px;
-  color: #666;
+export const Actions = styled.div`
   position: relative;
 
-  > div svg {
-    transition: all 0.2s ease-in-out;
+  > button {
+    border: none;
+    background: none;
+    font-size: 16px;
+    color: #666;
+
+    svg {
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        color: #7d40e7;
+        transform: scale(1.1);
+        cursor: pointer;
+      }
+    }
   }
 
-  &:hover > div svg {
-    color: #7d40e7;
-    transform: scale(1.1);
-  }
-
-  > div div {
+  > div {
     padding: 18px 15px;
-    background: #fff;
+    /* background: #fff; */
     border-radius: 4px;
     display: flex;
     flex-direction: column;
@@ -102,14 +106,13 @@ export const Actions = styled.button`
     top: 20px;
     left: calc(100% - 130px);
     display: flex;
-    visibility: ${(props) =>
-      props.openActions === true && props.closeActions === false
-        ? 'visible'
-        : 'hidden'};
-    opacity: ${(props) =>
-      props.openActions === true && props.closeActions === false ? '1' : '0'};
-    transform: ${(props) =>
-      props.openActions ? 'translate(15%, 15%)' : 'translate(0)'};
+    visibility: visible;
+    background: ${(props) => (props.openActions ? 'red' : 'green')};
+    /* visibility: ${(props) => (props.openActions ? 'visible' : 'hidden')}; */
+    opacity: 1;
+    /* opacity: ${(props) => (props.openActions ? '1' : '0')}; */
+    /* transform: ${(props) =>
+      props.openActions ? 'translate(15%, 15%)' : 'translate(0)'}; */
     transition: all 0.3s ease;
     z-index: 2;
 

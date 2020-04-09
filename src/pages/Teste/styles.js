@@ -4,20 +4,25 @@ export const Container = styled.div`
   background: ${(props) => (props.closeActions ? 'green' : 'grey')};
   width: 400px;
   height: 400px;
-  transition: all 0.3s ease-in-out;
+  transition: all 1s ease-in-out;
 
-  > span {
+  div {
+    transition: all 1s ease-in-out;
+    background: black;
+    height: 100px;
+    width: 100px;
+    cursor: pointer;
     ${({ closeActions }) =>
       closeActions
         ? css`
             visibility: hidden;
             opacity: 0;
-            font-size: 12px;
+            transform: translate(0);
           `
         : css`
             visibility: visible;
             opacity: 1;
-            font-size: 20px;
+            transform: translate(100%, 100%);
           `};
   }
 `;
