@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
-  background: ${(props) => (props.closeActions ? 'green' : 'grey')};
+  background: ${(props) => (props.visible ? 'green' : 'grey')};
   width: 400px;
   height: 400px;
   transition: all 1s ease-in-out;
@@ -12,8 +12,8 @@ export const Container = styled.div`
     height: 100px;
     width: 100px;
     cursor: pointer;
-    ${({ closeActions }) =>
-      closeActions
+    ${({ visible }) =>
+      visible
         ? css`
             visibility: hidden;
             opacity: 0;

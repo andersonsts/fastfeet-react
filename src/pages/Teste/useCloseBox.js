@@ -5,9 +5,9 @@ function useClickOut(ref, visible) {
 
   function handleClick(e) {
     if (ref.current && ref.current.contains(e.target)) {
-      setContentVisible(false);
-    } else {
       setContentVisible(true);
+    } else {
+      setContentVisible(false);
     }
   }
 

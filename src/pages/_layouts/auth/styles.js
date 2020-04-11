@@ -38,7 +38,7 @@ export const Content = styled.div`
       color: #fff;
       font-size: 18px;
       font-weight: bold;
-      border-radius: 4px;
+      border-radius: 5px;
       padding: 15px 0px;
       margin-top: 20px;
       transition: all 0.3s ease-in-out;
@@ -96,7 +96,7 @@ export const EmailWrapper = styled.div`
   > label {
     font-family: 'Roboto';
     position: absolute;
-    bottom: ${(props) => (props.ani ? '42px' : '70px')};
+    bottom: ${(props) => (props.animation ? '42px' : '70px')};
     left: 0px;
     transition: all 0.3s ease;
     pointer-events: none;

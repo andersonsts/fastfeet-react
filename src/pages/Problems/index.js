@@ -1,26 +1,29 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { FaEllipsisH, FaPen } from 'react-icons/fa';
 import { MdDeleteForever } from 'react-icons/md';
-
-import useClickOut from '../../hooks/useClickOutside';
 
 import { Container, Actions } from './styles';
 
 export default function Problems() {
   const [problems, setProblems] = useState([
     {
-      id: 1,
+      id: 0,
       description: 'alguma coisa aqui q sej aqualquer',
       openActions: false,
     },
     {
-      id: 2,
+      id: 1,
       description: 'deaff coisa aqui q sej aqualquer',
       openActions: false,
     },
     {
-      id: 3,
+      id: 2,
       description: 'fafea coisa aqui q sej aqualquer',
+      openActions: false,
+    },
+    {
+      id: 3,
+      description: 'fafea feaf aqui q sej aqualquer',
       openActions: false,
     },
     {
@@ -28,24 +31,26 @@ export default function Problems() {
       description: 'fafea feaf aqui q sej aqualquer',
       openActions: false,
     },
-    {
-      id: 5,
-      description: 'fafea feaf aqui q sej aqualquer',
-      openActions: false,
-    },
   ]);
-  const [actionCurrent, setActionCurrent] = useState(null);
-  const referent = useRef(null);
 
   function handleActions(problemId) {
     const problem = problems.find((prob) => prob.id === problemId);
     problem.openActions = !problem.openActions;
-    setActionCurrent(problemId);
 
     const problemCopy = [...problems];
-    problemCopy.splice(problemId - 1, 1, problem);
+    problemCopy.splice(problemId, 1, problem);
+
     setProblems(problemCopy);
-    console.log(actionCurrent);
+  }
+
+  function handleActionFalse(problemId) {
+    const problem = problems.find((prob) => prob.id === problemId);
+    problem.openActions = false;
+
+    const problemCopy = [...problems];
+    problemCopy.splice(problemId, 1, problem);
+
+    setProblems(problemCopy);
   }
 
   return (
@@ -65,14 +70,17 @@ export default function Problems() {
               <td>#{problem.id}</td>
               <td>{problem.description}</td>
               <td>
-                <Actions openActions={problem.openActions}>
+                <Actions
+                  openActions={problem.openActions}
+                  onBlur={() => handleActionFalse(problem.id)}
+                >
                   <button
                     type="button"
                     onClick={() => handleActions(problem.id)}
                   >
                     <FaEllipsisH />
                   </button>
-                  <div ref={referent}>
+                  <div>
                     <button type="button">
                       <FaPen /> <p>Visualiza</p>
                     </button>

@@ -94,25 +94,22 @@ export const Actions = styled.div`
 
   > div {
     padding: 18px 15px;
-    /* background: #fff; */
+    background: #fff;
     border-radius: 4px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: absolute;
-    width: 210px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     height: 95px;
+    width: 150px;
     top: 20px;
     left: calc(100% - 130px);
     display: flex;
-    visibility: visible;
-    background: ${(props) => (props.openActions ? 'red' : 'green')};
-    /* visibility: ${(props) => (props.openActions ? 'visible' : 'hidden')}; */
-    opacity: 1;
-    /* opacity: ${(props) => (props.openActions ? '1' : '0')}; */
-    /* transform: ${(props) =>
-      props.openActions ? 'translate(15%, 15%)' : 'translate(0)'}; */
+    visibility: ${(props) => (props.openActions ? 'visible' : 'hidden')};
+    opacity: ${(props) => (props.openActions ? '1' : '0')};
+    transform: ${(props) =>
+      props.openActions ? 'translate(5%, 15%)' : 'translate(0)'};
     transition: all 0.3s ease;
     z-index: 2;
 
