@@ -8,10 +8,11 @@ import {
   FaEllipsisH,
 } from 'react-icons/fa';
 import { GiCancel } from 'react-icons/gi';
+import { Link } from 'react-router-dom';
 
 import { Container, Top, Status, Actions } from './styles';
 
-export default function Dashboard() {
+export default function Packages() {
   return (
     <Container>
       <h2>Gerenciando encomendas</h2>
@@ -23,10 +24,10 @@ export default function Dashboard() {
           <input type="text" />
         </div>
 
-        <button type="button">
+        <Link to="/packages/register">
           <FaPlus />
           <strong>CADASTRAR</strong>
-        </button>
+        </Link>
       </Top>
       <table>
         <thead>

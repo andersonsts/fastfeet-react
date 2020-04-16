@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FaSignOutAlt } from 'react-icons/fa';
+
+import { signOut } from '../../store/modules/auth/actions';
 
 import logo from '../../assets/logo.png';
 import avatar from '../../assets/avatar.png';
@@ -9,15 +12,21 @@ import { Container, Content, Nav } from './styles';
 
 export default function Header() {
   const [links] = useState([
-    { label: 'ENCOMENDAS', route: '/dashboard', active: true },
+    { label: 'ENCOMENDAS', route: '/packages', active: true },
     { label: 'ENTREGADORES', route: '/deliverymans', active: false },
     { label: 'DESTINATÁRIOS', route: '/recipients', active: false },
     { label: 'PROBLEMAS', route: '/problems', active: false },
   ]);
   const [filterIndex, setFilterIndex] = useState(0);
 
+  const dispatch = useDispatch();
+
   async function handleIndex(index) {
     await setFilterIndex(index);
+  }
+
+  function handleSignOut() {
+    dispatch(signOut());
   }
 
   return (
@@ -43,10 +52,10 @@ export default function Header() {
           <img src={avatar} alt="Avatar" />
           <div>
             <strong>Admin FastFeet</strong>
-            <Link to="/logout">
+            <button type="button" onClick={handleSignOut}>
               <FaSignOutAlt />
               <p>Sair</p>
-            </Link>
+            </button>
           </div>
         </aside>
       </Content>

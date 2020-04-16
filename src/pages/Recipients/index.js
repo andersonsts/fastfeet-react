@@ -1,6 +1,7 @@
 import React from 'react';
 import { MdSearch } from 'react-icons/md';
 import { FaEllipsisH, FaPlus } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 import { Container, Top, Actions } from './styles';
 
@@ -16,10 +17,10 @@ export default function Recipients() {
           <input type="text" />
         </div>
 
-        <button type="button">
+        <Link to="/recipients/register">
           <FaPlus />
           <strong>CADASTRAR</strong>
-        </button>
+        </Link>
       </Top>
       <table>
         <thead>

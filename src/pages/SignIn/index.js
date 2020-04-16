@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { MdMail, MdLock } from 'react-icons/md';
 import { Form, Input } from '@rocketseat/unform';
+
+import { signInRequest } from '../../store/modules/auth/actions';
 
 import { EmailWrapper, PassWrapper } from '../_layouts/auth/styles';
 import logo from '../../assets/logo.png';
@@ -8,8 +11,11 @@ import logo from '../../assets/logo.png';
 export default function Sign() {
   const [animation, setAnimation] = useState(true);
 
-  function handleSubmit(data) {
-    console.tron.log(data);
+  const dispatch = useDispatch();
+  const loading = useSelector((state) => state.auth.loading);
+
+  function handleSubmit({ email, password }) {
+    dispatch(signInRequest(email, password));
   }
 
   function handleBlur(e) {
@@ -42,7 +48,9 @@ export default function Sign() {
           <label htmlFor="password">SUA SENHA</label>
           <MdLock />
         </PassWrapper>
-        <button type="submit">Entrar no sistema</button>
+        <button type="submit">
+          {loading ? 'Carregando...' : 'Entrar no sistema'}
+        </button>
       </Form>
     </>
   );

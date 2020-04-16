@@ -116,7 +116,7 @@ export const Top = styled.div`
     }
   }
 
-  > button {
+  > a {
     background: #7d40e7;
     width: 142px;
     height: 36px;

@@ -54,8 +54,10 @@ export const Content = styled.div`
         font-size: 15px;
       }
 
-      a {
+      > button {
         display: flex;
+        background: transparent;
+        border: none;
         align-items: center;
         font-size: 14px;
         color: #de3b3b;

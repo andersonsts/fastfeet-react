@@ -33,24 +33,24 @@ export default function Problems() {
     },
   ]);
 
-  function handleActions(problemId) {
-    const problem = problems.find((prob) => prob.id === problemId);
-    problem.openActions = !problem.openActions;
-
-    const problemCopy = [...problems];
-    problemCopy.splice(problemId, 1, problem);
-
-    setProblems(problemCopy);
+  function handleOpenActions(problemId, currentState) {
+    setProblems(
+      problems.map((problem) => {
+        return problem.id === problemId
+          ? { ...problem, openActions: !currentState }
+          : problem;
+      })
+    );
   }
 
-  function handleActionFalse(problemId) {
-    const problem = problems.find((prob) => prob.id === problemId);
-    problem.openActions = false;
-
-    const problemCopy = [...problems];
-    problemCopy.splice(problemId, 1, problem);
-
-    setProblems(problemCopy);
+  function handleOpenActionFalse(problemId) {
+    setProblems(
+      problems.map((problem) => {
+        return problem.id === problemId
+          ? { ...problem, openActions: false }
+          : problem;
+      })
+    );
   }
 
   return (
@@ -72,11 +72,13 @@ export default function Problems() {
               <td>
                 <Actions
                   openActions={problem.openActions}
-                  onBlur={() => handleActionFalse(problem.id)}
+                  onBlur={() => handleOpenActionFalse(problem.id)}
                 >
                   <button
                     type="button"
-                    onClick={() => handleActions(problem.id)}
+                    onClick={() =>
+                      handleOpenActions(problem.id, problem.openActions)
+                    }
                   >
                     <FaEllipsisH />
                   </button>

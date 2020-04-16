@@ -116,14 +116,13 @@ export const Top = styled.div`
     }
   }
 
-  > button {
+  > a {
     background: #7d40e7;
     width: 142px;
     height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: none;
     border-radius: 4px;
     padding: 8px 18px;
     transition: all 0.25s ease-in-out;
